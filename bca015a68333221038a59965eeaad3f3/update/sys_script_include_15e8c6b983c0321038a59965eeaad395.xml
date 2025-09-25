@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1323558_scriptin.AssignmentGroupUtils</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>AssignmentGroupUtils</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var AssignmentGroupUtils = Class.create();
+AssignmentGroupUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    // Lab 7.4 method
+    getNumberOfMembers: function() {
+        var groupSysId = this.getParameter('sysparm_group'); 
+        var gr = new GlideRecord('sys_user_grmember'); 
+        gr.addQuery('group', groupSysId);
+        gr.query();
+        return String(gr.getRowCount()); 
+    },
+
+    // Lab 7.5 method
+    getFirstAnalyst: function() {
+        var groupSysId = this.getParameter('sysparm_group');
+        var gr = new GlideRecord('sys_user_grmember');
+        gr.addQuery('group', groupSysId);
+        gr.orderBy('user'); // just grab the first alphabetically
+        gr.query();
+
+        if (gr.next()) {
+            var userObj = {
+                sys_id: gr.user.sys_id.toString(),
+                name: gr.user.getDisplayValue()
+            };
+            return new global.JSON().encode(userObj); // must return stringified JSON
+        }
+
+        return new global.JSON().encode({ sys_id: '', name: '' });
+    },
+
+    type: 'AssignmentGroupUtils'
+});
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-18 13:29:55</sys_created_on>
+        <sys_id>15e8c6b983c0321038a59965eeaad395</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>AssignmentGroupUtils</sys_name>
+        <sys_package display_value="Scripting Labs" source="x_1323558_scriptin">bca015a68333221038a59965eeaad3f3</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Scripting Labs">bca015a68333221038a59965eeaad3f3</sys_scope>
+        <sys_update_name>sys_script_include_15e8c6b983c0321038a59965eeaad395</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-18 13:47:01</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>15e8c6b983c0321038a59965eeaad395</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-18 13:29:54</sys_created_on>
+        <sys_id>5839c6b983c0321038a59965eeaad3c8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-18 13:29:54</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

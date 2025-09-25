@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>false</isolate_script>
+        <messages/>
+        <name>Lab 2.1.1 onCellEdit Alert</name>
+        <order/>
+        <script><![CDATA[function onCellEdit(sysIDs, tableName, fieldName, oldValue, newValue, callback) {
+    if (tableName === "incident" && fieldName === "state") {
+        if (newValue === "6" || newValue === "7") {
+            alert("You cannot set the State to Resolved or Closed from the list. Please open the record instead.");
+            callback(false);
+            return;
+        }
+    }
+    callback(true);
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-08 07:41:02</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>5719d56e83b3221038a59965eeaad3ca</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Lab 2.1.1 onCellEdit Alert</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Scripting Labs" source="x_1323558_scriptin">bca015a68333221038a59965eeaad3f3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Scripting Labs">bca015a68333221038a59965eeaad3f3</sys_scope>
+        <sys_update_name>sys_script_client_5719d56e83b3221038a59965eeaad3ca</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-08 07:56:26</sys_updated_on>
+        <table>incident</table>
+        <type/>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

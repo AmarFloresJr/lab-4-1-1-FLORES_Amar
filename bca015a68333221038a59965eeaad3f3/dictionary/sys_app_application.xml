@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="all_tables.text_index_translations=true,ref_ac_columns=name,ref_ac_columns_search=true,ref_auto_completer=AJAXTableCompleter,update_synch=true" audit="true" db_object_id="ecc03c33bd3222104f34afdd794b6a3e" extends="sys_metadata" label="Application Menu" max_length="40" name="sys_app_application" read_roles="admin" text_index="true" type="collection">
+        <element attributes="pdf_cell_type=image" label="Image" max_length="40" name="x_1323558_scriptin_image" type="user_image"/>
+    </element>
+</database>

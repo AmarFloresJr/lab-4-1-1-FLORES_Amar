@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="334208448310321038a59965eeaad314" label="Lab Company" max_length="40" name="x_1323558_scriptin_lab_company" type="collection">
+        <element display="true" label="Website" max_length="1024" name="website" type="url"/>
+        <element attributes="edge_encryption_enabled=true" label="Name" max_length="40" name="name" type="string"/>
+        <element label="Description" max_length="255" name="description" type="string"/>
+        <index name="index">
+            <element name="name"/>
+            <element name="website"/>
+        </index>
+    </element>
+</database>

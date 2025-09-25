@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_1323558_scriptin.LogPropertyValues</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>LogPropertyValues</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var LogPropertyValues = Class.create();
+LogPropertyValues.prototype = {
+    initialize: function() {},
+
+    log: function(sysId) {
+        var gr = new GlideRecord('incident');
+        if (gr.get(sysId)) {
+            gs.info('=== Lab 7.1: Logging for incident ' + gr.number);
+            gs.info('Short description: ' + gr.short_description);
+            gs.info('CAB Date: ' + gr.x_1323558_scriptin_cab_date);
+        } else {
+            gs.info('=== Lab 7.1: Incident not found for sys_id = ' + sysId);
+        }
+    },
+
+    type: 'LogPropertyValues'
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-18 13:21:41</sys_created_on>
+        <sys_id>5427063983c0321038a59965eeaad37c</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>LogPropertyValues</sys_name>
+        <sys_package display_value="Scripting Labs" source="x_1323558_scriptin">bca015a68333221038a59965eeaad3f3</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Scripting Labs">bca015a68333221038a59965eeaad3f3</sys_scope>
+        <sys_update_name>sys_script_include_5427063983c0321038a59965eeaad37c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-18 13:26:52</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>5427063983c0321038a59965eeaad37c</id>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-18 13:21:41</sys_created_on>
+        <sys_id>b34746f583c0321038a59965eeaad3b8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-18 13:21:41</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

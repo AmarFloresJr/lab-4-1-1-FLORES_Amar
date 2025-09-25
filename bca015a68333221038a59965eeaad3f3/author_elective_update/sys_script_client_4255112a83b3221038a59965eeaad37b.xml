@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field/>
+        <global>true</global>
+        <isolate_script>false</isolate_script>
+        <messages/>
+        <name>Lab 2.1.1 onCellEdit Alert</name>
+        <order/>
+        <script><![CDATA[function onCellEdit(sysIDs, tableName, fieldName, oldValue, newValue, callback) {
+    // Debugging log (shows in JS Log window, not blocked by isolation)
+    jslog("onCellEdit fired: table=" + tableName + " field=" + fieldName + " old=" + oldValue + " new=" + newValue);
+
+    // Only act when the State field changes on the Incident table
+    if (tableName === "incident" && fieldName === "state") {
+        if (newValue === "6" || newValue === "7") {
+            // Show a ServiceNow-safe message (instead of alert)
+            g_form.showFieldMsg("state", "You cannot set State to Resolved or Closed from the list.", "error");
+            callback(false); // cancel the change
+            return;
+        }
+    }
+
+    // Allow other edits
+    callback(true);
+}
+]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-08 07:23:42</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>4255112a83b3221038a59965eeaad37b</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Lab 2.1.1 onCellEdit Alert</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Scripting Labs" source="x_1323558_scriptin">bca015a68333221038a59965eeaad3f3</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Scripting Labs">bca015a68333221038a59965eeaad3f3</sys_scope>
+        <sys_update_name>sys_script_client_4255112a83b3221038a59965eeaad37b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-08 07:33:56</sys_updated_on>
+        <table>incident</table>
+        <type>onCellEdit</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Scripting Labs">bca015a68333221038a59965eeaad3f3</application>
+        <file_path/>
+        <instance_id>699aaa8b1b0a3d90168f4089bd4bcb2b</instance_id>
+        <instance_name>dev195737</instance_name>
+        <name>sys_script_client_4255112a83b3221038a59965eeaad37b</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field/&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;false&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;Lab 2.1.1 onCellEdit Alert&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onCellEdit(sysIDs, tableName, fieldName, oldValue, newValue, callback) {
+    // Debugging log (shows in JS Log window, not blocked by isolation)
+    jslog("onCellEdit fired: table=" + tableName + " field=" + fieldName + " old=" + oldValue + " new=" + newValue);
+
+    // Only act when the State field changes on the Incident table
+    if (tableName === "incident" &amp;&amp; fieldName === "state") {
+        if (newValue === "6" || newValue === "7") {
+            // Show a ServiceNow-safe message (instead of alert)
+            g_form.showFieldMsg("state", "You cannot set State to Resolved or Closed from the list.", "error");
+            callback(false); // cancel the change
+            return;
+        }
+    }
+
+    // Allow other edits
+    callback(true);
+}
+]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2025-09-08 07:23:42&lt;/sys_created_on&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;4255112a83b3221038a59965eeaad37b&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;Lab 2.1.1 onCellEdit Alert&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Scripting Labs" source="x_1323558_scriptin"&gt;bca015a68333221038a59965eeaad3f3&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Scripting Labs"&gt;bca015a68333221038a59965eeaad3f3&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_4255112a83b3221038a59965eeaad37b&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2025-09-08 07:33:56&lt;/sys_updated_on&gt;&lt;table&gt;incident&lt;/table&gt;&lt;type&gt;onCellEdit&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1711669138</payload_hash>
+        <record_name>Lab 2.1.1 onCellEdit Alert</record_name>
+        <reverted_from/>
+        <source>fca0156283b3221038a59965eeaad301</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-08 07:33:56</sys_created_on>
+        <sys_id>18d7d1ea83b3221038a59965eeaad3da</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>199283eec2c0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-08 07:33:56</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>dcd7d1ea99b3221047ea7c667383e8d9</update_guid>
+        <update_guid_history>dcd7d1ea99b3221047ea7c667383e8d9:-1711669138,bf87d1eac4b32210a1ed818eaddd3d99:1349167923,953759aa73b32210689de4e998e4976c:-62142384,1675d12ac4b3221029c55a5155e5b204:1349167923</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2025-09-08 07:39:32</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>07fe2f6e115241d89e519adf75295104</sys_id>
+        <sys_metadata>4255112a83b3221038a59965eeaad37b</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Lab 2.1.1 onCellEdit Alert</sys_name>
+        <sys_package display_value="Scripting Labs" source="x_1323558_scriptin">bca015a68333221038a59965eeaad3f3</sys_package>
+        <sys_parent display_value="Incident">4e86f03fbdb222104f34afdd794b6a96</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Scripting Labs">bca015a68333221038a59965eeaad3f3</sys_scope>
+        <sys_scope_delete display_value="">58401858c44c4e2b9c9d835f375fb081</sys_scope_delete>
+        <sys_update_name>sys_script_client_4255112a83b3221038a59965eeaad37b</sys_update_name>
+        <sys_update_version display_value="sys_script_client_4255112a83b3221038a59965eeaad37b">18d7d1ea83b3221038a59965eeaad3da</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2025-09-08 07:39:32</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
